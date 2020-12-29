@@ -94,18 +94,32 @@ const executor = async () => {
   fse.writeJsonSync(packageJSONLocation, sortPackageJSON(packageJSON), 'utf8');
 
   console.log(chalk.bold.cyanBright('⌛ 🤞 Installing packages'));
-  await spawn('npm', ['install'], { cwd: destinationDirectory, stdio: 'inherit' });
+  await spawn('yarn', ['install'], { cwd: destinationDirectory, stdio: 'inherit' });
   await spawn('git', ['init'], { cwd: destinationDirectory, stdio: 'inherit' });
 
   console.log(chalk.bold.magentaBright('🥝  🍋  🍐  🍓  🍊  🍍  🍰  Installation complete! 🍒  🍈  🍇  🍉  🍏  🍎  🍌'));
   console.log();
 
-  console.log(`🎭  ${chalk.bold.magentaBright('Run')} ${chalk.bold.blueBright('jest')} ${chalk.bold.magentaBright('tests')}: ${chalk.bold.cyanBright('npm run test')} `);
-  console.log(`🏗️  ${chalk.bold.magentaBright('Build')} ${chalk.bold.blueBright('rollup.js')} ${chalk.bold.magentaBright('library')}: ${chalk.bold.cyanBright('npm run build')}`);
-  console.log(`👕  ${chalk.bold.magentaBright('Run')} ${chalk.bold.blueBright('eslint')}: ${chalk.bold.cyanBright('npm run lint')}`);
+  console.log(
+     `🎭  ${chalk.bold.magentaBright('Run')} ${chalk.bold.blueBright('jest')} ${chalk.bold.magentaBright(
+        'tests',
+     )}: ${chalk.bold.cyanBright('yarn test')} `,
+  );
+  console.log(
+     `🏗️  ${chalk.bold.magentaBright('Build')} ${chalk.bold.blueBright('rollup.js')} ${chalk.bold.magentaBright(
+        'library',
+     )}: ${chalk.bold.cyanBright('yarn build')}`,
+  );
+  console.log(
+     `👕  ${chalk.bold.magentaBright('Run')} ${chalk.bold.blueBright('eslint')}: ${chalk.bold.cyanBright('yarn lint')}`,
+  );
 
   if (isReact) {
-    console.log(`📖  ${chalk.bold.magentaBright('Run')} ${chalk.bold.blueBright('Storybook')}: ${chalk.bold.cyanBright('npm run storybook')}`);
+    console.log(
+       `📖  ${chalk.bold.magentaBright('Run')} ${chalk.bold.blueBright('Storybook')}: ${chalk.bold.cyanBright(
+          'yarn storybook',
+       )}`,
+    );
   }
 
   console.log();

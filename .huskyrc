@@ -1,5 +1,5 @@
  {
    "husky": {
-     "commitmsg": "npm run commitmsg"
+     "commitmsg": "yarn run commitmsg"
    }
  }

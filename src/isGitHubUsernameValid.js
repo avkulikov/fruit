@@ -1,10 +1,10 @@
-import Octokit from '@octokit/rest';
+import {Octokit} from '@octokit/rest';
 
 const client = new Octokit();
 
 const isGitHubUsernameValid = async (username) => {
   try {
-    await client.users.getForUser({ username });
+    await client.users.getByUsername({ username });
     return true;
   } catch (e) {
     return false;

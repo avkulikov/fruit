@@ -1,11 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import AnotherExample from './index';
 
 describe('AnotherExample', () => {
-  it('is a div', () => {
-    const example = mount(<AnotherExample />);
-    expect(example.find('div').length).toEqual(1);
+  it('renders welcome message', () => {
+     render(<AnotherExample />);
+     expect(screen.getByText('This is another example by')).toBeInTheDocument();
   });
 });
